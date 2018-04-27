@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-
 import com.cg.bank.customer.Account;
 import com.cg.bank.customer.Address;
 import com.cg.bank.customer.Contact;
@@ -37,17 +36,17 @@ public class MyTest {
 
 		System.out.println(map.size());
 
-		assertEquals(2, map.size());//Test Case To Add
+		assertEquals(2, map.size());// Test Case To Add
 
-		iserv.transact(customer.getCustomer_id());//TestCase for view Customer
-		assertEquals(0, 0);
-		
-		iserv.transact(customer2.getCustomer_id());//TestCase for view Customer
-		assertEquals(0, 0);
-		
-		iserv.transaction(customer.getCustomer_id(), customer2.getCustomer_id(), 200);//TestCase For Transaction
-		assertEquals(300, 300);
-		
+		iserv.transact(customer.getCustomer_id());// TestCase for view Customer
+		assertEquals(0, iserv.transact("101"));
+
+		iserv.transact(customer2.getCustomer_id());// TestCase for view Customer
+		assertEquals(1, iserv.transact("1005"));
+
+		iserv.transaction(customer.getCustomer_id(), customer2.getCustomer_id(), 200);// TestCase For Transaction
+		assertEquals(300, iserv.transaction("101","102", 200));
+
 	}
 
 }
